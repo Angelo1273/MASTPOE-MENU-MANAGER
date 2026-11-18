@@ -83,3 +83,12 @@ export default function Index() {
     setEditingItem(null);
     setActiveScreen("menu");
   };
+  const handleStartAdd = () => {
+    setEditingItem(null);
+    setActiveScreen("form");
+  };
+
+  const handleStartEdit = (item: MenuItem) => {
+    setEditingItem(item);
+    setActiveScreen("form");
+  };
