@@ -5,7 +5,7 @@ import React from "react";
 import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../constants/theme";
 import { MenuItem, ScreenType } from "../Types/menu";
-import { calculateAveragePrice, getCourseCount } from "../utils/menuHelpers";
+import { calculateAveragePrice, getCourseCount } from "../Utils/menuHelpers";
 
 interface DashboardProps {
   items: MenuItem[];
