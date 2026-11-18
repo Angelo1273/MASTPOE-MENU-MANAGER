@@ -58,3 +58,28 @@ export default function Index() {
       setFeedbackBanner(null);
     }, 3500);
   };
+  // Handle saving new or edited menu items
+  const handleSaveMenuItem = (
+    itemData: Omit<MenuItem, "id">,
+    existingId?: string
+  ) => {
+    if (existingId) {
+      // Update existing dish
+      setMenuItems((prev) =>
+        prev.map((item) =>
+          item.id === existingId ? { ...itemData, id: existingId } : item
+        )
+      );
+      showSuccessFeedback(`Updated "${itemData.name}" successfully.`);
+    } else {
+      // Add new dish
+      const newItem: MenuItem = {
+        ...itemData,
+        id: Date.now().toString(),
+      };
+      setMenuItems((prev) => [newItem, ...prev]);
+      showSuccessFeedback(`Added "${itemData.name}" to the menu.`);
+    }
+    setEditingItem(null);
+    setActiveScreen("menu");
+  };
