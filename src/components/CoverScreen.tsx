@@ -72,5 +72,29 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
           },
         ]}
       ></Animated.View>
+      {/* App brand eyebrow label */}
+        <Text style={styles.badge}>CHEF&apos;S MENU MANAGER</Text>
+
+        {/* Primary animated greeting headline */}
+        <Text style={styles.greeting}>Greetings, Chef</Text>
+
+        {/* Supporting tagline describing core app purpose */}
+        <Text style={styles.subtitle}>
+          Curate your courses, manage pricing, and craft your culinary lineup.
+        </Text>
+
+        {/* Primary call-to-action button to transition to the Dashboard */}
+        <TouchableOpacity
+          style={styles.enterButton}
+          onPress={onEnter}
+          activeOpacity={0.85}
+        >
+          <Text style={styles.enterButtonText}>Open Kitchen Dashboard</Text>
+        </TouchableOpacity>
+      </Animated.View>
+    </View>
+  );
+}
+
       
     
