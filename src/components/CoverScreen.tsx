@@ -3,7 +3,7 @@
 
 import React, { useEffect, useRef } from "react";
 import {
-    Animated,
+  Animated,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,13 +11,11 @@ import {
 } from "react-native";
 import { COLORS } from "../constants/theme";
 
-
 //Props accepted by the CoverScreen component.
 interface CoverScreenProps {
   onEnter: () => void;
 }
 export default function CoverScreen({ onEnter }: CoverScreenProps) {
- 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(30)).current;
   const floatAnim = useRef(new Animated.Value(0)).current;
@@ -35,12 +33,10 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      
-      //Starting  an infinite loop
-       //that gently  the text container upward.
+      //Starting an infinite loop
+      //that gently moves the text container upward.
       Animated.loop(
         Animated.sequence([
-        
           Animated.timing(floatAnim, {
             toValue: -8,
             duration: 1800,
@@ -71,8 +67,8 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
             ],
           },
         ]}
-      ></Animated.View>
-      {/* App brand eyebrow label */}
+      >
+        {/* App brand eyebrow label */}
         <Text style={styles.badge}>CHEF&apos;S MENU MANAGER</Text>
 
         {/* Primary animated greeting headline */}
@@ -96,5 +92,59 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
   );
 }
 
-      
-    
+/**
+ * Component stylesheet utilizing centralized theme colors with safe fallbacks.
+ */
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.background || "#F8F9FA",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 24,
+  },
+  content: {
+    alignItems: "center",
+    maxWidth: 340,
+  },
+  badge: {
+    fontSize: 12,
+    fontWeight: "700",
+    letterSpacing: 2,
+    color: COLORS.primary || "#D97706",
+    marginBottom: 12,
+  },
+  greeting: {
+    fontSize: 38,
+    fontWeight: "800",
+    color: COLORS.textPrimary || "#1F2937",
+    textAlign: "center",
+    marginBottom: 12,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: COLORS.textSecondary || "#6B7280",
+    textAlign: "center",
+    lineHeight: 24,
+    marginBottom: 36,
+  },
+  enterButton: {
+    backgroundColor: COLORS.primary || "#D97706",
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 12,
+    // Cross-platform subtle drop shadow (iOS shadow* + Android elevation)
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  enterButtonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "900",
+  },
+});
+
+
