@@ -220,3 +220,64 @@ export default function Index() {
     </SafeAreaView>
   );
 }
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+  },
+  topBar: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#334155",
+  },
+  topBarTitle: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    fontWeight: "800",
+    letterSpacing: 0.4,
+  },
+  toastBanner: {
+    backgroundColor: COLORS.successLight,
+    borderBottomWidth: 1,
+    borderBottomColor: COLORS.success,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+  },
+  toastText: {
+    color: "#065F46",
+    fontWeight: "700",
+    fontSize: 13,
+    textAlign: "center",
+  },
+  contentArea: {
+    flex: 1,
+  },
+  bottomNav: {
+    flexDirection: "row",
+    backgroundColor: COLORS.surface,
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    gap: 8,
+  },
+  navTab: {
+    flex: 1,
+    paddingVertical: 10,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  navTabActive: {
+    backgroundColor: COLORS.primary,
+  },
+  navTabText: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: COLORS.textSecondary,
+  },
+  navTabTextActive: {
+    color: "#FFFFFF",
+  },
+});
