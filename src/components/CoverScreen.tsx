@@ -55,7 +55,7 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
   return (
     // Main full-screen container centering the welcome card
     <View style={styles.container}>
-      {/* Animated wrapper combining opacity and combined vertical translation */}
+      
       <Animated.View
         style={[
           styles.content,
@@ -68,18 +68,17 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
           },
         ]}
       >
-        {/* App brand eyebrow label */}
+        
         <Text style={styles.badge}>CHEF&apos;S MENU MANAGER</Text>
 
         {/* Primary animated greeting headline */}
         <Text style={styles.greeting}>Greetings, Chef</Text>
 
-        {/* Supporting tagline describing core app purpose */}
+        // Supporting tagline describing core app purpose 
         <Text style={styles.subtitle}>
-          Curate your courses, manage pricing, and craft your culinary lineup.
+          Edit your courses, manage pricing, and Pick your starting Lineup  of 'W Eats'.
         </Text>
 
-        {/* Primary call-to-action button to transition to the Dashboard */}
         <TouchableOpacity
           style={styles.enterButton}
           onPress={onEnter}
@@ -92,9 +91,9 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
   );
 }
 
-/**
- * Component stylesheet utilizing centralized theme colors with safe fallbacks.
- */
+
+//theme colors with safe fallbacks.
+ 
 const styles = StyleSheet.create({
   container: {
     flex: 1,

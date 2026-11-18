@@ -12,8 +12,9 @@ import {
   TouchableOpacity,
   View,
   } from "react-native";
-import AddEditMenuItem from "../components/AddEditMenuItem";
+import CoverScreen from "../components/CoverScreen";
 import Dashboard from "../components/Dashboard";
+import AddEditMenuItem from "../components/AddEditMenuItem";
 import MenuList from "../components/MenuList";
 import { COLORS } from "../constants/theme";
 import { MenuItem, ScreenType } from "../Types/menu";
@@ -50,6 +51,7 @@ export default function Index() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>(INITIAL_MENU);
   const [editingItem, setEditingItem] = useState<MenuItem | null>(null);
   const [feedbackBanner, setFeedbackBanner] = useState<string | null>(null);
+  const [showCover, setShowCover] = useState(true);
 
   // Show temporary success feedback toast banner
   const showSuccessFeedback = (message: string) => {
@@ -119,7 +121,7 @@ export default function Index() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
+      <StatusBar barStyle="light-content" />
 
       {/* Top Application Header Bar */}
       <View style={styles.topBar}>
