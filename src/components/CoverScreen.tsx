@@ -29,3 +29,20 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
         duration: 900,
         useNativeDriver: true,
       }),
+      Animated.timing(slideAnim, {
+        toValue: 0,
+        duration: 900,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      
+      //Starting  an infinite loop
+       //that gently  the text container upward.
+      Animated.loop(
+        Animated.sequence([
+        
+          Animated.timing(floatAnim, {
+            toValue: -8,
+            duration: 1800,
+            useNativeDriver: true,
+          }),
