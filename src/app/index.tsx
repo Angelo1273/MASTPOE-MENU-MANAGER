@@ -17,3 +17,30 @@ import Dashboard from "../components/Dashboard";
 import MenuList from "../components/MenuList";
 import { COLORS } from "../constants/theme";
 import { MenuItem, ScreenType } from "../Types/menu";
+// Initial sample menu items for immediate application demonstration
+const INITIAL_MENU: MenuItem[] = [
+  {
+    id: "1",
+    name: "Crispy Calamari & Lemon Aioli",
+    description:
+      "Flash-fried Falkland calamari tubes served with roasted garlic aioli and charred lemon.",
+    course: "Starter",
+    price: 95.0,
+  },
+  {
+    id: "2",
+    name: "Grilled Karoo Lamb Chops",
+    description:
+      "Herb-crusted free-range lamb loin chops with rosemary jus and baby potatoes.",
+    course: "Main Course",
+    price: 220.0,
+  },
+  {
+    id: "3",
+    name: "Cape Malva Pudding",
+    description:
+      "Warm apricot-glazed sponge pudding served with vanilla bean custard.",
+    course: "Dessert",
+    price: 85.0,
+  },
+]
