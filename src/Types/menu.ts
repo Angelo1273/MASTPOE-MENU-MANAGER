@@ -14,3 +14,5 @@ export interface MenuItem {
   course: CourseType;  // Category of the course
   price: number;       // Price in Rand (R)
 }
+// Defines active navigation screens in the app
+export type ScreenType = "dashboard" | "menu" | "form";
