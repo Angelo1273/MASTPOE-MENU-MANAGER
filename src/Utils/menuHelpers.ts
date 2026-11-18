@@ -31,3 +31,10 @@ export const filterMenuItems = (
     const matchesSearch =
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase());
+      // Check if item matches the selected course filter (or if "All" is selected)
+    const matchesCourse =
+      selectedCourse === "All" || item.course === selectedCourse;
+
+    return matchesSearch && matchesCourse;
+  });
+};
