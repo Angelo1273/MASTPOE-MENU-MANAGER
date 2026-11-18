@@ -92,3 +92,131 @@ export default function Index() {
     setEditingItem(item);
     setActiveScreen("form");
   };
+  // Handle platform-safe deletion (window.confirm on web, Alert.alert on mobile)
+  const handleDeleteItem = (itemToDelete: MenuItem) => {
+    const performDelete = () => {
+      setMenuItems((prev) =>
+        prev.filter((item) => item.id !== itemToDelete.id)
+      );
+      showSuccessFeedback(`Removed "${itemToDelete.name}" from the menu.`);
+    };
+
+    if (Platform.OS === "web") {
+      if (window.confirm(`Delete "${itemToDelete.name}" from the menu?`)) {
+        performDelete();
+      }
+    } else {
+      Alert.alert(
+        "Delete Menu Item",
+        `Are you sure you want to remove "${itemToDelete.name}"?`,
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Delete", style: "destructive", onPress: performDelete },
+        ]
+      );
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.primary} />
+
+      {/* Top Application Header Bar */}
+      <View style={styles.topBar}>
+        <Text style={styles.topBarTitle}>Chef's Menu Manager</Text>
+      </View>
+
+      {/* Toast Feedback Banner */}
+      {feedbackBanner && (
+        <View style={styles.toastBanner}>
+          <Text style={styles.toastText}>{feedbackBanner}</Text>
+        </View>
+      )}
+
+      {/* Dynamic Screen Content Switcher */}
+      <View style={styles.contentArea}>
+        {activeScreen === "dashboard" && (
+          <Dashboard
+            items={menuItems}
+            onNavigate={setActiveScreen}
+            onStartAdd={handleStartAdd}
+          />
+        )}
+
+        {activeScreen === "menu" && (
+          <MenuList
+            items={menuItems}
+            onEdit={handleStartEdit}
+            onDelete={handleDeleteItem}
+            onStartAdd={handleStartAdd}
+          />
+        )}
+
+        {activeScreen === "form" && (
+          <AddEditMenuItem
+            editingItem={editingItem}
+            onSave={handleSaveMenuItem}
+            onCancel={() => {
+              setEditingItem(null);
+              setActiveScreen("menu");
+            }}
+          />
+        )}
+      </View>
+
+      {/* Bottom Navigation Tab Bar */}
+      <View style={styles.bottomNav}>
+        <TouchableOpacity
+          style={[
+            styles.navTab,
+            activeScreen === "dashboard" && styles.navTabActive,
+          ]}
+          onPress={() => setActiveScreen("dashboard")}
+        >
+          <Text
+            style={[
+              styles.navTabText,
+              activeScreen === "dashboard" && styles.navTabTextActive,
+            ]}
+          >
+            Dashboard
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.navTab,
+            activeScreen === "menu" && styles.navTabActive,
+          ]}
+          onPress={() => setActiveScreen("menu")}
+        >
+          <Text
+            style={[
+              styles.navTabText,
+              activeScreen === "menu" && styles.navTabTextActive,
+            ]}
+          >
+            Menu ({menuItems.length})
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.navTab,
+            activeScreen === "form" && styles.navTabActive,
+          ]}
+          onPress={handleStartAdd}
+        >
+          <Text
+            style={[
+              styles.navTabText,
+              activeScreen === "form" && styles.navTabTextActive,
+            ]}
+          >
+            + Add Dish
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
