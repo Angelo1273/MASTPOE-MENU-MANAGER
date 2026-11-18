@@ -33,3 +33,56 @@ export default function Dashboard({ items, onNavigate, onStartAdd }: DashboardPr
       </View>
 
       <Text style={styles.sectionTitle}>Menu Analytics</Text>
+      </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: COLORS.background || "#f5f5f5",
+  },
+  
+  welcomeCard: {
+    backgroundColor: "#ffffff",
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  welcomeTitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333333",
+    marginBottom: 8,
+  },
+  welcomeSubtitle: {
+    fontSize: 14,
+    color: "#666666",
+    marginBottom: 16,
+    lineHeight: 20,
+  },
+  primaryButton: {
+    backgroundColor: COLORS.primary || "#007AFF",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  primaryButtonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#333333",
+    marginBottom: 12,
+  },
+});
