@@ -44,3 +44,17 @@ const INITIAL_MENU: MenuItem[] = [
     price: 85.0,
   },
 ]
+export default function Index() {
+  // Global Application State
+  const [activeScreen, setActiveScreen] = useState<ScreenType>("dashboard");
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(INITIAL_MENU);
+  const [editingItem, setEditingItem] = useState<MenuItem | null>(null);
+  const [feedbackBanner, setFeedbackBanner] = useState<string | null>(null);
+
+  // Show temporary success feedback toast banner
+  const showSuccessFeedback = (message: string) => {
+    setFeedbackBanner(message);
+    setTimeout(() => {
+      setFeedbackBanner(null);
+    }, 3500);
+  };
