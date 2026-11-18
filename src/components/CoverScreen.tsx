@@ -16,3 +16,16 @@ import { COLORS } from "../constants/theme";
 interface CoverScreenProps {
   onEnter: () => void;
 }
+export default function CoverScreen({ onEnter }: CoverScreenProps) {
+ 
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const slideAnim = useRef(new Animated.Value(30)).current;
+  const floatAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 900,
+        useNativeDriver: true,
+      }),
