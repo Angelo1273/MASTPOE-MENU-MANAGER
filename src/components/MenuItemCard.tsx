@@ -45,3 +45,78 @@ export default function MenuItemCard({ item, onEdit, onDelete }: MenuItemCardPro
     </View>
   );
 }
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: COLORS.cardBg,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    marginBottom: 6,
+  },
+  itemName: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: COLORS.textPrimary,
+    flex: 1,
+    marginRight: 8,
+  },
+  badge: {
+    backgroundColor: COLORS.accent,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 6,
+  },
+  badgeText: {
+    color: "#FFFFFF",
+    fontSize: 11,
+    fontWeight: "700",
+    textTransform: "uppercase",
+  },
+  description: {
+    fontSize: 13,
+    color: COLORS.textSecondary,
+    marginBottom: 12,
+    lineHeight: 18,
+  },
+  footerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderTopWidth: 1,
+    borderTopColor: COLORS.border,
+    paddingTop: 10,
+  },
+  price: {
+    fontSize: 16,
+    fontWeight: "800",
+    color: COLORS.accent,
+  },
+  actionButtons: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  editButton: {
+    backgroundColor: "#475569",
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
+  },
+  deleteButton: {
+    backgroundColor: COLORS.danger,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 12,
+    fontWeight: "600",
+  },
+});
