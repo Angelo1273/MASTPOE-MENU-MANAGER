@@ -46,3 +46,31 @@ export default function CoverScreen({ onEnter }: CoverScreenProps) {
             duration: 1800,
             useNativeDriver: true,
           }),
+          Animated.timing(floatAnim, {
+            toValue: 0,
+            duration: 1800,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    });
+  }, [fadeAnim, slideAnim, floatAnim]);
+
+  return (
+    // Main full-screen container centering the welcome card
+    <View style={styles.container}>
+      {/* Animated wrapper combining opacity and combined vertical translation */}
+      <Animated.View
+        style={[
+          styles.content,
+          {
+            opacity: fadeAnim,
+            transform: [
+              // Combine initial entrance slide with ongoing floating offset
+              { translateY: Animated.add(slideAnim, floatAnim) },
+            ],
+          },
+        ]}
+      ></Animated.View>
+      
+    
